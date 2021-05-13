@@ -33,6 +33,12 @@
                 <li class="@yield('dashboard_select')">
                     <a href="{{ route('admin.dashboard') }}"><img src="{{ asset('assets/images/icons/dashboard.svg') }}" style="height: 18px;" class="img-fluid me-3">Dashboard</a>
                 </li>
+                <li class="@yield('category_select')">
+                    <a href="{{ route('category') }}"><img src="{{ asset('assets/images/icons/list.svg') }}" style="height: 18px;" class="img-fluid me-3">Category</a>
+                </li>
+                <li class="@yield('sub_category_select')">
+                    <a href="{{ route('sub.category') }}"><img src="{{ asset('assets/images/icons/list-text.svg') }}" style="height: 18px;" class="img-fluid me-3">Sub Category</a>
+                </li>
                 <li class="@yield('course_select')">
                     <a href="{{ route('view.course') }}"><img src="{{ asset('assets/images/icons/book.svg') }}" style="height: 18px;" class="img-fluid me-3">Course</a>
                 </li>

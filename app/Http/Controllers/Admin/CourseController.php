@@ -2,25 +2,69 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\SubCategory;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class CourseController extends Controller
 {
     public function viewCourse(){
+        if(Auth::user()->role != "admin"){
+            return redirect()->route('homepage');
+        }
         return view("admin.course");
     }
 
     public function addCourse(){
-        return view('admin.createCourse');
+        if(Auth::user()->role != "admin"){
+            return redirect()->route('homepage');
+        }
+        $data['categories'] = Category::all();
+        $data['sub_categories'] = SubCategory::all();
+        return view('admin.createCourse',$data);
     }
 
     public function storeCourse(Request $request){
+        if(Auth::user()->role != "admin"){
+            return redirect()->route('homepage');
+        }
+
+        $request->validate([
+            'course_title' => 'required',
+            'course_description' => 'required',
+            'language' => 'required',
+            'course_category' => 'required',
+            'course_subcategory' => 'required',
+            'price' => 'required',
+            'cover_image' => 'required',
+            'promo_video' => 'required',
+        ]);
+
+        $slug = Str::slug($request->course_title, '-');
+
+        $course = new Course;
+        $course->course_title = $request->course_title;
+        $course->course_description = $request->course_description;
+        $course->language = $request->language;
+        $course->cat_id = $request->course_category;
+        $course->sub_cat_id = $request->course_subcategory;
+        $course->price = $request->price;
+        $course->cover_image = $request->cover_image;
+        $course->promo_video = $request->promo_video;
+        $course->slug = $slug;
+        $course->save();
+
+        return redirect()->back();
 
     }
 
     public function addCourseContent(){
+        if(Auth::user()->role != "admin"){
+            return redirect()->route('homepage');
+        }
         return view('admin.courseContent');
     }
 }

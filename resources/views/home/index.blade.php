@@ -1,4 +1,5 @@
 @extends('layouts.base')
+@section('page_title','cws-academy homepage')
 @section('content')
     <div class="container-fluid p-0 pt-4 mt-n5" style="background-color: #87EBD6;
         background: #87EBD6 -webkit-gradient(linear, left top, left bottom, from(#87BDEB), to(#87EBD6)) no-repeat;">
@@ -26,7 +27,7 @@
                     @php
                         for($i = 1; $i<7; $i++):
                     @endphp
-                    
+
                   <div class="post-slide shadow-sm m-2">
                     <div class="post-img m-0 p-0">
                       <img src="{{ asset('assets/images/'.$i.'.png') }}" alt="{{ asset('assets/images/'.$i.'png') }}">
