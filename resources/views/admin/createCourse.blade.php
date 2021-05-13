@@ -4,7 +4,7 @@
 @section('content')
 
 <h6 class="h4 container">Create New Course</h6>
-<form action="{{ route('store.course') }}" method="post">
+<form action="{{ route('store.course') }}" enctype="multipart/form-data" method="post">
     @csrf
     <div class="container mt-4">
         <div class="card border-0 cws-shadow rounded-15">

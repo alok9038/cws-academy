@@ -15,6 +15,21 @@
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
+                    @foreach ($courses as $course)
+                        <tr>
+                            <td>CSR-{{ $course->id }}</td>
+                            <td>{{ $course->course_title }}</td>
+                            <td>{{ $course->created_at }}</td>
+                            <td>{{ $course->cat->cat_title }}</td>
+                            <td>active</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-sm btn-info">e</a>
+                                    <a href="#" class="btn btn-sm btn-danger">x</a>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                 </table>
             </div>
         </div>

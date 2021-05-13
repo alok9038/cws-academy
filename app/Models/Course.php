@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
+    public function cat(){
+        return $this->hasOne('App\Models\Category','id','cat_id');
+    }
 }

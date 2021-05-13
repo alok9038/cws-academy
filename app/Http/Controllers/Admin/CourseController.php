@@ -15,7 +15,9 @@ class CourseController extends Controller
         if(Auth::user()->role != "admin"){
             return redirect()->route('homepage');
         }
-        return view("admin.course");
+
+        $data['courses'] = Course::all();
+        return view("admin.course",$data);
     }
 
     public function addCourse(){
@@ -45,6 +47,12 @@ class CourseController extends Controller
 
         $slug = Str::slug($request->course_title, '-');
 
+        $cover_image = time(). "_"  .$slug . "." . $request->cover_image->extension();
+        $request->cover_image->move(public_path("course/cover_image"),$cover_image);
+
+        $promo_video = time() . "_"  .$slug . "." . $request->promo_video->extension();
+        $request->promo_video->move(public_path("course/promo_video"),$promo_video);
+
         $course = new Course;
         $course->course_title = $request->course_title;
         $course->course_description = $request->course_description;
@@ -52,12 +60,12 @@ class CourseController extends Controller
         $course->cat_id = $request->course_category;
         $course->sub_cat_id = $request->course_subcategory;
         $course->price = $request->price;
-        $course->cover_image = $request->cover_image;
-        $course->promo_video = $request->promo_video;
+        $course->cover_image = $cover_image;
+        $course->promo_video = $promo_video;
         $course->slug = $slug;
         $course->save();
 
-        return redirect()->back();
+        return redirect()->route('view.course');
 
     }
 
