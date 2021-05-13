@@ -1,3 +1,6 @@
+.rounded-10{
+    border-radius: 10px!important;
+}
 .rounded-15{
     border-radius: 15px!important;
 }
@@ -7,7 +10,7 @@
 .cws-shadow {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
   }
-  
+
 .cws-shadow-md {
 box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06);
 }
@@ -56,7 +59,7 @@ box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
 	-o-transform: translate(0px, -100%) scale(0, 0);
 	-ms-transform: translate(0px, -100%) scale(0, 0);
 	transform: translate(0px, -100%) scale(0, 0);
-    
+
     opacity: 0;
 }
 
@@ -65,7 +68,7 @@ box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
     -moz-transform: translate(0px, 0px) scale(1, 1);
 	-o-transform: translate(0px, 0px) scale(1, 1);
 	-ms-transform: translate(0px, 0px) scale(1, 1);
-	transform: translate(0px, 0px) scale(1, 1); 
+	transform: translate(0px, 0px) scale(1, 1);
     opacity: 1;
 }
 
@@ -456,17 +459,17 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     transition: 0.4s all;
   }
-  
+
   .navbar-links li.navbar-dropdown {
     position: relative;
   }
-  
+
   .navbar-links li.navbar-dropdown:hover .dropdown {
     visibility: visible;
     opacity: 1;
     transform: translateY(0px);
   }
-  
+
   .navbar-links li.navbar-dropdown .dropdown {
     visibility: hidden;
     opacity: 0;
@@ -494,5 +497,5 @@ h1, h2, h3, h4, h5, h6 {
   .navbar-links li a:hover {
     color: #ff3f34;
   }
-  
-  
+
+
